@@ -32,8 +32,8 @@
     <li class="dropdown">
       <ul id="settings-dropdown" class="dropdown-menu">
         <li>
-          <a href="#" tabindex="-1">
-                        Settings
+            <a href="#" tabindex="-1"  data-toggle="modal" data-target="#myModal">
+                        Pengaturan Akun
                     </a>
         </li>
         <li>
@@ -135,3 +135,51 @@
   <!-- Sidebar text -->
   <!--  <div class="sidebar-text">Text</div> -->
 </aside>
+<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <h4 class="modal-title" id="myModalLabel">Pengaturan Akun</h4>
+            </div>
+            <form class="form-horizontal" action="akun.php" method="post">
+                <div class="modal-body">
+                    <legend>Nama</legend>
+                    <hr>
+                    <div class="form-group">
+                        <label for="NISN" class="col-lg-2 control-label">Nama</label>
+                        <div class="col-lg-10">
+                            <input type="text" class="form-control" id="NISN" placeholder="Nama Anda " name="nama" required value="<?php echo $pdo->query("select nama_guru from guru where id_guru='".$_SESSION["username"]."'")->fetchColumn();?>">
+                        </div>
+                    </div>
+                    <legend>Password</legend>
+                    <hr>
+                    <div class="form-group">
+                        <label for="NISN" class="col-lg-2 control-label">Password Lama</label>
+                        <div class="col-lg-10">
+                            <input type="password" class="form-control" id="NISN" placeholder="Password Lama" name="plama" required>
+                        </div>
+                    </div>
+                    <hr>
+                    <div class="form-group">
+                        <label for="nama" class="col-lg-2 control-label">Password Baru</label>
+                        <div class="col-lg-10">
+                            <input type="password" class="form-control" id="nama" placeholder="Password Baru" name="pbaru" required>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="nama" class="col-lg-2 control-label">Ulang Password</label>
+                        <div class="col-lg-10">
+                            <input type="password" class="form-control" id="nama" placeholder="Ulangi Password Baru" name="pulang" required>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <input class="btn btn-primary btn-material-indigo" type="hidden" value="<?php echo __FILE__; ?>" name="page">
+                    <input class="btn btn-primary btn-material-indigo" type="submit" value="Simpan" name="simpan">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Batal</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>

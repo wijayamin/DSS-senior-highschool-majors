@@ -10,6 +10,9 @@ if(!isset($_SESSION["username"])){
             header("location:../guru/");
         }
     }
+$pageini="Dasboard";
+header("Location:guru.php");
+
 ?>
 <!DOCTYPE html>
 <html>

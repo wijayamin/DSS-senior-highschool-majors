@@ -34,7 +34,7 @@
             if ($row[0]=="admin"){
                 header("location:tu/");
             }elseif($row[0]=="guru"){
-                header("location:guru/");
+                header("location:guru");
             }else{
                 header("location:minat.php");
             }
